@@ -32,11 +32,11 @@ const start = (client) => {
               )
               .then((transcription) => {
                 client.sendText(msg.from, `Olá, sou o Sr. Jensen 🕴🏻, o transcritor de áudio. Obrigado por utilizar meus serviços! \n\nTranscrição: ${transcription.results.channels[0].alternatives[0].transcript}`);
+                fs.unlinkSync("audio.mp3");
               })
               .catch((err) => {
                 console.log(err);
               });
-              fs.unlinkSync("audio.mp3");
         });
     }
   });
